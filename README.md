@@ -10,11 +10,8 @@
 
 **What Happened:**
 
-**Impact Level:** ☐ Low  ☐ Medium  ☐ High  ☐ Critical
 ---
-
 ## 🖥️ INCIDENT DETAILS
-
 ### **Timeline**
 
 - **First Malicious Activity:** ________________ (UTC)
