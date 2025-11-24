@@ -29,7 +29,7 @@
 
 
 
-##  Flag 1 – esc
+##  Flag 1 – Identify the source IP address of the Remote Desktop Protocol connection
 
 **Objective**: 
 
@@ -42,7 +42,7 @@
 **Notes:**
 
 ---
-##  Flag 2 – esc
+##  Flag 2 – Identify the user account that was compromised for initial access
 
 **Objective**: 
 
@@ -55,7 +55,7 @@
 **Notes:**
 ---
 
-##  Flag 3 – esc
+##  Flag 3 – Identify the command and argument used to enumerate network neighbours
 
 **Objective**: 
 
@@ -68,7 +68,7 @@
 **Notes:**
 
 ---
-##  Flag 4 – esc
+##  Flag 4 – Identify the PRIMARY staging directory where malware was stored
 
 **Objective**: 
 
@@ -82,7 +82,203 @@
 
 ---
 
-##  Flag 5 – esc
+##  Flag 5 – How many file extensions were excluded from Windows Defender scanning
+
+**Objective**: 
+
+**Finding**:  
+
+**KQL Query**:
+```
+```
+
+**Notes:**
+---
+
+##  Flag 6 – What temporary folder path was excluded from Windows Defender scanning
+
+**Objective**: 
+
+**Finding**:  
+
+**KQL Query**:
+```
+```
+
+**Notes:**
+
+---
+##  Flag 7 – Identify the Windows-native binary the attacker abused to download files
+
+**Objective**: 
+
+**Finding**:  
+
+**KQL Query**:
+```
+```
+
+**Notes:**
+---
+
+##  Flag 8 – Identify the name of the scheduled task created for persistence
+
+**Objective**: 
+
+**Finding**:  
+
+**KQL Query**:
+```
+```
+
+**Notes:**
+
+---
+##  Flag 9 – Identify the executable path configured in the scheduled task
+
+**Objective**: 
+
+**Finding**:  
+
+**KQL Query**:
+```
+```
+
+**Notes:**
+
+---
+
+##  Flag 10 –  Identify the IP address of the command and control server
+
+**Objective**: 
+
+**Finding**:  
+
+**KQL Query**:
+```
+```
+
+**Notes:**
+---
+##  Flag 11 – Identify the destination port used for command and control communications
+
+**Objective**: 
+
+**Finding**:  
+
+**KQL Query**:
+```
+```
+
+**Notes:**
+
+---
+##  Flag 12 – Identify the filename of the credential dumping tool
+
+**Objective**: 
+
+**Finding**:  
+
+**KQL Query**:
+```
+```
+
+**Notes:**
+---
+
+##  Flag 13 – Identify the module used to extract logon passwords from memory
+
+**Objective**: 
+
+**Finding**:  
+
+**KQL Query**:
+```
+```
+
+**Notes:**
+
+---
+##  Flag 14 – Identify the compressed archive filename used for data exfiltration
+
+**Objective**: 
+
+**Finding**:  
+
+**KQL Query**:
+```
+```
+
+**Notes:**
+
+---
+
+##  Flag 15 – Identify the cloud service used to exfiltrate stolen data
+
+**Objective**: 
+
+**Finding**:  
+
+**KQL Query**:
+```
+```
+
+**Notes:**
+---
+##  Flag 16 – Identify the first Windows event log cleared by the attacker
+
+**Objective**: 
+
+**Finding**:  
+
+**KQL Query**:
+```
+```
+
+**Notes:**
+
+---
+##  Flag 17 – Identify the backdoor account username created by the attacker
+
+**Objective**: 
+
+**Finding**:  
+
+**KQL Query**:
+```
+```
+
+**Notes:**
+---
+
+##  Flag 18 – Identify the PowerShell script file used to automate the attack chain
+
+**Objective**: 
+
+**Finding**:  
+
+**KQL Query**:
+```
+```
+
+**Notes:**
+
+---
+##  Flag 19 – What IP address was targeted for lateral movement
+
+**Objective**: 
+
+**Finding**:  
+
+**KQL Query**:
+```
+```
+
+**Notes:**
+
+---
+
+##  Flag 20 – Identify the remote access tool used for lateral movement
 
 **Objective**: 
 
@@ -102,6 +298,6 @@
 **C. Investigation Timeline**
 ---
 
-**Report Completed By:** ________________
+**Report Completed By:** Edward Campbell
 
 **Date:** ________________
