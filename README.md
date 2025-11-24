@@ -24,6 +24,30 @@
 - **Compromised Account:** kenji.sato
 - **Affected System:** azuki-sl
 - **Attacker IP Address:** 88.97.178.12
+  
+### **Attack Chain** *(What did the attacker do?)*
+
+## **Initial Access (TA0001):**
+
+## **Execution (TA0002):**
+
+## **Persistence (TA0003):**
+
+## **Defense Evasion (TA0005):**
+
+## **Discovery (TA0007):**
+
+## **Credential Access (TA0006):**
+
+## **Lateral Movement (TA0008):**
+
+## **Collection (TA0009):**
+
+## **Command & Control (TA0011):**
+
+## **Exfiltration (TA0010):**
+
+## **Impact (TA0040):**
 ---
 
 
