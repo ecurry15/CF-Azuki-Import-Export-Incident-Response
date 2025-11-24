@@ -12,18 +12,18 @@
 
 ---
 ## 🖥️ INCIDENT DETAILS
-### **Timeline**
+### **Timeline Overview**
 
-- **First Malicious Activity:** ________________ (UTC)
-- **Last Observed Activity:** ________________ (UTC)
-- **Total Duration:** ________________
+- **First Malicious Activity:** 19 November 2025 18:36:18.503997Z
+- **Last Observed Activity:** 22 November 2025 00:38:47.8327343Z
+- **Total Duration:** 54 hours 2 minutes
 
   ### **Attack Overview**
 
-- **Initial Access Method:** ________________
-- **Compromised Account:** ________________
-- **Affected System:** ________________
-- **Attacker IP Address:** ________________
+- **Initial Access Method:** Remote Desktop Protocol
+- **Compromised Account:** kenji.sato
+- **Affected System:** azuki-sl
+- **Attacker IP Address:** 88.97.178.12
 ---
 
 
