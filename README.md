@@ -18,7 +18,7 @@
 - **Last Observed Activity:** 22 November 2025 00:38:47.8327343Z
 - **Total Duration:** 54 hours 2 minutes
 
-  ### **Attack Overview**
+### **Attack Overview**
 
 - **Initial Access Method:** Remote Desktop Protocol
 - **Compromised Account:** kenji.sato
