@@ -1,6 +1,6 @@
 # 🕵️‍♂️ Threat Hunt Report: CF Azuki Import/Export
 
-**Analyst:**Edward Campbell
+**Analyst:** Edward Campbell
 **Investigation Date:** 23-November-2025
 **Incident Date:** 19-November-2025
 
