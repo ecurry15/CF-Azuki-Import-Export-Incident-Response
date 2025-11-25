@@ -50,15 +50,22 @@
 
 ##  Flag 1 – Identify the source IP address of the Remote Desktop Protocol connection
 
-**Objective**: 
+**Finding**: The IP address `88.97.178.12` gained initial access to the VM `AZUKI-SL` at `2025-11-19T18:36:18.503997Z` via RDP by using valid user credentials. 
 
-**Finding**:  
+**Thoughts**: When creating the query, I filtered for only `Network` and `RemoteInteractive` logon types because these represent an RDP connection. I determined the IP was suspicious because it originates in the UK, which is not normal for business in Japan.
 
 **KQL Query**:
 ```
-```
+DeviceLogonEvents
+| where DeviceName == "azuki-sl"
+| where Timestamp between (datetime(2025-11-19) .. datetime(2025-11-20))
+| where ActionType == "LogonSuccess"
+| where LogonType has_any ("Network", "RemoteInteractive")
+| order by Timestamp desc
 
-**Notes:**
+```
+<img width="1905" height="549" alt="question1" src="https://github.com/user-attachments/assets/094c2159-f40a-427d-ba24-be689a6b74a1" />
+
 
 ---
 ##  Flag 2 – Identify the user account that was compromised for initial access
