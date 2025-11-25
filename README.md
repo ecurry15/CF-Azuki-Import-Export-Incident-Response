@@ -140,8 +140,8 @@ DeviceRegistryEvents
 
 ##  Flag 6 – What temporary folder path was excluded from Windows Defender scanning
 
-**Finding**:  The temp folder was excluded from Windows Defender at `2025-11-19T18:49:27.6830204Z`.
-**REG Value Name**: `C:\Users\KENJI~1.SAT\AppData\Local\Temp`  
+**Finding**:  The temp folder was excluded from Windows Defender at `2025-11-19T18:49:27.6830204Z`.  
+**REG Value Name**: `C:\Users\KENJI~1.SAT\AppData\Local\Temp`    
 **REG Path**: `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Defender\Exclusions\Paths`
 
 
@@ -152,8 +152,6 @@ DeviceRegistryEvents
 | where RegistryKey contains "Exclusions"
 
 ```
-
-**Notes:**
 
 ---
 ##  Flag 7 – Identify the Windows-native binary the attacker abused to download files
