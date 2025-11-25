@@ -1,5 +1,5 @@
 # 🕵️‍♂️ Threat Hunt Report: CF Azuki Import/Export
-<img width="340" height="510" alt="Port-of-entry" src="https://github.com/user-attachments/assets/ad79de24-8cf9-4897-8556-ab8e8143930b" />
+<img width="440" height="410" alt="Port-of-entry" src="https://github.com/user-attachments/assets/ad79de24-8cf9-4897-8556-ab8e8143930b" />
 
 **Analyst:** Edward Campbell  
 **Investigation Date:** 23-November-2025  
