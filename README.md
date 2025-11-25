@@ -80,13 +80,20 @@ DeviceLogonEvents
 
 ##  Flag 3 – Identify the command and argument used to enumerate network neighbours
 
-**Objective**: 
+**Finding**: The attacher used the `Arp.exe` and `Ipconfig / all` commands to identify lateral movement opportunities at 2025-11-19T19:04:01.773778Z.
 
-**Finding**:  
+**Thoughts**:  When creating this query, I filtered for the most common commands that reveal local network devices.
 
 **KQL Query**:
 ```
+DeviceProcessEvents
+| where DeviceName == "azuki-sl"
+| where Timestamp between (datetime(2025-11-19T18:36:18.503997Z) .. datetime(2025-11-19T21:36:18.503997Z))
+| where ProcessCommandLine has_any ("arp", "net", "nbtstat", "count", "get")
+| order by Timestamp desc
+
 ```
+<img width="1879" height="673" alt="Q3" src="https://github.com/user-attachments/assets/62d2dcec-76af-42e1-afc3-54b398923ee6" />
 
 **Notes:**
 
