@@ -57,8 +57,10 @@ T1071.001 - Command and Control communications established over port 443
 ## **Exfiltration (TA0010):**    
 T1567 - The website Discord was used to exfiltrate stolen data
 
-## **Impact (TA0040):**    
+## **Impact (TA0040):**      
 T1136.001 - The attacker created a backdoor account named "support" for persistence.
+
+
 ---
 
 
