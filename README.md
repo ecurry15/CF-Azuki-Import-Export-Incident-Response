@@ -80,7 +80,7 @@ DeviceLogonEvents
 
 ##  Flag 3 – Identify the command and argument used to enumerate network neighbours
 
-**Finding**: The attacher used the `Arp.exe` and `Ipconfig / all` commands to identify lateral movement opportunities at 2025-11-19T19:04:01.773778Z.
+**Finding**: The attacher used the `Arp.exe` and `Ipconfig / all` commands to identify lateral movement opportunities at `2025-11-19T19:04:01.773778Z`.
 
 **Thoughts**:  When creating this query, I wanted to start with the most common commands that reveal local network devices.
 
@@ -99,7 +99,7 @@ DeviceProcessEvents
 ---
 ##  Flag 4 – Identify the PRIMARY staging directory where malware was stored
 
-**Finding**: PowerShell was used to create the folder `WindowsCache` at 2025-11-19T19:05:30.755805Z. The folder was then hidden at 2025-11-19T19:05:33.7665036Z.
+**Finding**: PowerShell was used to create the folder `WindowsCache` at `2025-11-19T19:05:30.755805Z`. The folder was then hidden at `2025-11-19T19:05:33.7665036Z`.
 
 **Folder Path:** `C:\ProgramData\WindowsCache`  
 **Commands Found**:  `attrib.exe +h +s C:\ProgramData\WindowsCache`  
@@ -125,7 +125,7 @@ DeviceProcessEvents
 
 ##  Flag 5 – How many file extensions were excluded from Windows Defender scanning
 
-**Finding**: 3 file extensions `(.ps1, .bat, and .exe )`  were added to the registry `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Defender\Exclusions\Extensions`
+**Finding**: 3 file extensions `(.ps1, .bat, and .exe )`  were added to the registry `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Defender\Exclusions\Extensions` at `2025-11-19T18:49:27.7301011Z`.
 
 **KQL Query**:
 ```
@@ -140,12 +140,17 @@ DeviceRegistryEvents
 
 ##  Flag 6 – What temporary folder path was excluded from Windows Defender scanning
 
-**Objective**: 
+**Finding**:  The temp folder was excluded from Windows Defender at `2025-11-19T18:49:27.6830204Z`.
+**REG Value Name**: `C:\Users\KENJI~1.SAT\AppData\Local\Temp`  
+**REG Path**: `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Defender\Exclusions\Paths`
 
-**Finding**:  
 
 **KQL Query**:
 ```
+DeviceRegistryEvents
+| where DeviceName == "azuki-sl"
+| where RegistryKey contains "Exclusions"
+
 ```
 
 **Notes:**
