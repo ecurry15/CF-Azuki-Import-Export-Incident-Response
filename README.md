@@ -82,7 +82,7 @@ DeviceLogonEvents
 
 **Finding**: The attacher used the `Arp.exe` and `Ipconfig / all` commands to identify lateral movement opportunities at 2025-11-19T19:04:01.773778Z.
 
-**Thoughts**:  When creating this query, I filtered for the most common commands that reveal local network devices.
+**Thoughts**:  When creating this query, I wanted to start with the most common commands that reveal local network devices.
 
 **KQL Query**:
 ```
@@ -93,21 +93,33 @@ DeviceProcessEvents
 | order by Timestamp desc
 
 ```
-<img width="1879" height="673" alt="Q3" src="https://github.com/user-attachments/assets/62d2dcec-76af-42e1-afc3-54b398923ee6" />
+<img width="1879" height="643" alt="Q3" src="https://github.com/user-attachments/assets/62d2dcec-76af-42e1-afc3-54b398923ee6" />
 
 
 ---
 ##  Flag 4 – Identify the PRIMARY staging directory where malware was stored
 
-**Finding**: 
+**Finding**: PowerShell was used to create the folder `WindowsCache` at 2025-11-19T19:05:30.755805Z. The folder was then hidden at 2025-11-19T19:05:33.7665036Z.
 
-**Finding**:  
+**Folder Path:** C:\ProgramData\WindowsCache
+**Commands Found**:  attrib.exe +h +s C:\ProgramData\WindowsCache
+**Thoughts**: I initially went in looking for hidden directories, which is why I filtered for `attrib.exe` first. I then went back and filtered for the hidden folder to see how it was created.
 
-**KQL Query**:
+**KQL Queries**:
+```
+DeviceProcessEvents
+| where DeviceName == "azuki-sl"
+| where FileName =~ "attrib.exe"
+| order by Timestamp desc
 ```
 ```
+DeviceProcessEvents
+| where DeviceName == "azuki-sl"
+| where ProcessCommandLine contains "WindowsCache"
+| order by Timestamp desc
 
-**Notes:**
+```
+<img width="1892" height="476" alt="Q4" src="https://github.com/user-attachments/assets/406cb6b9-7070-4857-8fa3-91e1693c9bce" />
 
 ---
 
