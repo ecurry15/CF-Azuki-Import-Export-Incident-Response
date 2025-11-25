@@ -332,8 +332,7 @@ DeviceFileEvents
 ## **APPENDIX**
 
 ### **A. Key Indicators of Compromise (IOCs)**
-**B. MITRE ATT&CK Mapping**
-**C. Investigation Timeline**
+
 ---
 
 **Report Completed By:** Edward Campbell
