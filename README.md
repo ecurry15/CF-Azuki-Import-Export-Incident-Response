@@ -72,15 +72,9 @@ DeviceLogonEvents
 ---
 ##  Flag 2 – Identify the user account that was compromised for initial access
 
-**Objective**: 
+**Finding**: The User account `kenji.sato` was used by the attacker.
 
-**Finding**:  
-
-**KQL Query**:
-```
-```
-
-**Notes:**
+**Notes:** This evidence can be found when running the query in Flag 1
 ---
 
 ##  Flag 3 – Identify the command and argument used to enumerate network neighbours
