@@ -267,33 +267,37 @@ DeviceNetworkEvents
 | where InitiatingProcessCommandLine contains "curl"
 
 ```
-
-**Notes:**
 ---
 ##  Flag 16 – Identify the first Windows event log cleared by the attacker
 
-**Objective**: 
+**Finding**: The attacker cleared the Windows Security Logs at `2025-11-19T19:11:39.0934399Z`  
 
-**Finding**:  
+**Command Used**: `wevtutil.exe cl Security`
 
 **KQL Query**:
 ```
-```
+DeviceProcessEvents
+| where DeviceName == "azuki-sl"
+| where ProcessCommandLine has_all ("wevtutil.exe", "cl")
+| order by Timestamp desc
 
-**Notes:**
+```
 
 ---
 ##  Flag 17 – Identify the backdoor account username created by the attacker
 
-**Objective**: 
-
-**Finding**:  
+**Finding**: The user account `support` was created at `2025-11-19T19:09:48.9668967Z` then added to the `Administrators` group at `2025-11-19T19:09:53.08884Z`
 
 **KQL Query**:
 ```
-```
+DeviceEvents
+| where DeviceName == "azuki-sl"
+| where ActionType contains "user"
+| order by Timestamp desc
 
-**Notes:**
+```
+<img width="1895" height="509" alt="Q17" src="https://github.com/user-attachments/assets/310b38c4-e4ca-404a-b6c4-348c9b6e0d22" />
+
 ---
 
 ##  Flag 18 – Identify the PowerShell script file used to automate the attack chain
