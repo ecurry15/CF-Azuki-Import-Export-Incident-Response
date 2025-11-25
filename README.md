@@ -25,40 +25,52 @@
 - **Affected System:** azuki-sl
 - **Attacker IP Address:** 88.97.178.12
   
-### **Attack Chain** *(What did the attacker do?)*
+## 🧬 MITRE ATT&CK Mapping
 
-## **Initial Access (TA0001):**   
-T1078.003 - The attacker gained access using valid local credentials via RDP
+### **Initial Access (TA0001)**
+- **T1078.003** – Valid Accounts  
+  The attacker gained access via valid RDP credentials.
 
-## **Execution (TA0002):**  
-T1059.001 - PowerShell was used to run the Malicious Script "wupdate.ps1"
+### **Execution (TA0002)**
+- **T1059.001** – PowerShell  
+  Malicious script `wupdate.ps1` executed.
 
-## **Persistence (TA0003):**  
-T1053.005 - The attacker created a Scheduled Task to run the malicious payload
+### **Persistence (TA0003)**
+- **T1053.005** – Scheduled Task  
+  A scheduled task was created to run the malicious payload.
 
-## **Defense Evasion (TA0005):**  
-T1564.001/T1036.008/T1564.001/T1105 - The attacker created a malware staging directory, excluded file extensions and folders from Windows Defender scanning, and abused certutil.exe to download files.
+### **Defense Evasion (TA0005)**
+- **T1564.001 / T1036.008 / T1105**  
+  Hidden directories, file masquerading, and downloading via `certutil.exe`.
 
-## **Discovery (TA0007):**  
-T1016 - the attacher used Arp.exe and Ipconfig / all to perform network reconnaissance
+### **Discovery (TA0007)**
+- **T1016** – System Network Discovery  
+  Used `arp -a` and `ipconfig /all`.
 
-## **Credential Access (TA0006):**  
-T1003.001 - The attacker used the credential dumping tool Mimikatz
+### **Credential Access (TA0006)**
+- **T1003.001** – LSASS Memory Dumping  
+  Mimikatz was executed.
 
-## **Lateral Movement (TA0008):**  
-T1021.001 - The attacker used the mstsc.exe /V:<IP> command to attempt lateral movement.
+### **Lateral Movement (TA0008)**
+- **T1021.001** – Remote Desktop Protocol  
+  Attempted RDP movement to target VM.
 
-## **Collection (TA0009):**    
-T1560.001 - The attacker created a file "export-data.zip" for data exfiltration
+### **Collection (TA0009)**
+- **T1560.001** – Archive Collected Data  
+  Data staged into `export-data.zip`.
 
-## **Command & Control (TA0011):**    
-T1071.001 - Command and Control communications established over port 443
+### **Command & Control (TA0011)**
+- **T1071.001** – Web Protocols  
+  C2 via HTTPS over port 443.
 
-## **Exfiltration (TA0010):**    
-T1567 - The website Discord was used to exfiltrate stolen data
+### **Exfiltration (TA0010)**
+- **T1567** – Exfiltration Over Web Services  
+  Data exfiltrated via Discord webhook.
 
-## **Impact (TA0040):**      
-T1136.001 - The attacker created a backdoor account named "support" for persistence.
+### **Impact (TA0040)**
+- **T1136.001** – Create Account  
+  Backdoor account “support” created.
+
 
 
 ---
