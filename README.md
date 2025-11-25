@@ -27,15 +27,17 @@
   
 ### **Attack Chain** *(What did the attacker do?)*
 
-##**Initial Access (TA0001):** 
+## **Initial Access (TA0001):**   
 T1078.003 - The attacker gained access using valid local credentials via RDP
 
-## **Execution (TA0002):**
+## **Execution (TA0002):**  
 T1059.001 - PowerShell was used to run the Malicious Script "wupdate.ps1"
 
-## **Persistence (TA0003):** T1053.005 - The attacker created a Scheduled Task to run the malicious payload
+## **Persistence (TA0003):**  
+T1053.005 - The attacker created a Scheduled Task to run the malicious payload
 
-## **Defense Evasion (TA0005):** T1564.001/T1036.008/T1564.001/T1105 - The attacker created a malware staging directory, excluded file extensions and folders from Windows Defender scanning, and abused certutil.exe to download files.
+## **Defense Evasion (TA0005):**  
+T1564.001/T1036.008/T1564.001/T1105 - The attacker created a malware staging directory, excluded file extensions and folders from Windows Defender scanning, and abused certutil.exe to download files.
 
 ## **Discovery (TA0007):**
 
