@@ -25,51 +25,21 @@
 - **Affected System:** azuki-sl
 - **Attacker IP Address:** 88.97.178.12
   
-## 🧬 MITRE ATT&CK Mapping
+## 🧬 MITRE ATT&CK Mapping (Attack Chain)
 
-### **Initial Access (TA0001)**
-- **T1078.003** – Valid Accounts  
-  The attacker gained access via valid RDP credentials.
-
-### **Execution (TA0002)**
-- **T1059.001** – PowerShell  
-  Malicious script `wupdate.ps1` executed.
-
-### **Persistence (TA0003)**
-- **T1053.005** – Scheduled Task  
-  A scheduled task was created to run the malicious payload.
-
-### **Defense Evasion (TA0005)**
-- **T1564.001 / T1036.008 / T1105**  
-  Hidden directories, file masquerading, and downloading via `certutil.exe`.
-
-### **Discovery (TA0007)**
-- **T1016** – System Network Discovery  
-  Used `arp -a` and `ipconfig /all`.
-
-### **Credential Access (TA0006)**
-- **T1003.001** – LSASS Memory Dumping  
-  Mimikatz was executed.
-
-### **Lateral Movement (TA0008)**
-- **T1021.001** – Remote Desktop Protocol  
-  Attempted RDP movement to target VM.
-
-### **Collection (TA0009)**
-- **T1560.001** – Archive Collected Data  
-  Data staged into `export-data.zip`.
-
-### **Command & Control (TA0011)**
-- **T1071.001** – Web Protocols  
-  C2 via HTTPS over port 443.
-
-### **Exfiltration (TA0010)**
-- **T1567** – Exfiltration Over Web Services  
-  Data exfiltrated via Discord webhook.
-
-### **Impact (TA0040)**
-- **T1136.001** – Create Account  
-  Backdoor account “support” created.
+| Tactic | Technique ID | Description |
+|-------|--------------|-------------|
+| **Initial Access (TA0001)** | T1078.003 | The attacker gained access using valid local credentials via RDP. |
+| **Execution (TA0002)** | T1059.001 | PowerShell was used to run the malicious script `wupdate.ps1`. |
+| **Persistence (TA0003)** | T1053.005 | A Scheduled Task was created to run the malicious payload. |
+| **Defense Evasion (TA0005)** | T1564.001 / T1036.008 / T1105 | Attacker used hidden directories, file-type masquerading, and abused `certutil.exe` to download tools. |
+| **Discovery (TA0007)** | T1016 | `arp -a` and `ipconfig /all` used to enumerate local network configuration. |
+| **Credential Access (TA0006)** | T1003.001 | Mimikatz was used for credential dumping. |
+| **Lateral Movement (TA0008)** | T1021.001 | `mstsc.exe /V:<IP>` used to attempt RDP lateral movement. |
+| **Collection (TA0009)** | T1560.001 | Data staged into `export-data.zip`. |
+| **Command & Control (TA0011)** | T1071.001 | HTTPS (port 443) used for C2 to external IP. |
+| **Exfiltration (TA0010)** | T1567 | Discord webhook used for data exfiltration. |
+| **Impact (TA0040)** | T1136.001 | Backdoor account `support` created for persistent access. |
 
 
 
