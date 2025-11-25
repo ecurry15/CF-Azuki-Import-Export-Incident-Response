@@ -74,7 +74,8 @@ DeviceLogonEvents
 
 **Finding**: The User account `kenji.sato` was used by the attacker.
 
-**Notes:** This evidence can be found when running the query in Flag 1
+**Notes**: This evidence can be found when running the query in Flag 1.
+
 ---
 
 ##  Flag 3 – Identify the command and argument used to enumerate network neighbours
