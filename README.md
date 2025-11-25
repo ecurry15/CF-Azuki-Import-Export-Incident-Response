@@ -186,29 +186,20 @@ DeviceProcessEvents
 ```
 
 ---
-##  Flag 10 –  Identify the IP address of the command and control server
+##  Flag 10 & 11 –  Identify the IP address and the destination port of the command and control server
 
-**Objective**: 
+**Finding**: A network connection was initiated by `svchost.exe` to external `IP 78.141.196.6` over `port 443` at `2025-11-19T19:11:04.1766386Z`.  
+**Thoughts**: I wanted to check for network events that happened shortly after `svchost.exe` was downloaded. This explains my reasoning for the timestamp range in my query. 
 
-**Finding**:  
-
-**KQL Query**:
-```
-```
-
-**Notes:**
----
-##  Flag 11 – Identify the destination port used for command and control communications
-
-**Objective**: 
-
-**Finding**:  
 
 **KQL Query**:
 ```
-```
+DeviceNetworkEvents
+| where DeviceName == "azuki-sl"
+| where Timestamp between (datetime(2025-11-19T19:07:01.032199Z) .. datetime(2025-11-19T19:30:01.032199Z))
 
-**Notes:**
+```
+<img width="1873" height="415" alt="Q10" src="https://github.com/user-attachments/assets/a0be21a6-3921-46fd-9e70-aad9a5c24ced" />
 
 ---
 ##  Flag 12 – Identify the filename of the credential dumping tool
