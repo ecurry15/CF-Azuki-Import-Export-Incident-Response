@@ -226,15 +226,18 @@ DeviceProcessEvents
 
 ##  Flag 14 – Identify the compressed archive filename used for data exfiltration
 
-**Objective**: 
+**Finding**: `Export-data.zip` was created at `2025-11-19T19:08:58.0244963Z`  
 
-**Finding**:  
+**File Path**: `C:\ProgramData\WindowsCache\export-data.zip` 
 
 **KQL Query**:
 ```
-```
+DeviceFileEvents
+| where DeviceName == "azuki-sl"
+| where FolderPath contains "WindowsCache"
+| where FileName contains ".zip"
 
-**Notes:**
+```
 
 ---
 
