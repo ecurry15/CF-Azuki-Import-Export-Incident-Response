@@ -101,8 +101,8 @@ DeviceProcessEvents
 
 **Finding**: PowerShell was used to create the folder `WindowsCache` at 2025-11-19T19:05:30.755805Z. The folder was then hidden at 2025-11-19T19:05:33.7665036Z.
 
-**Folder Path:** C:\ProgramData\WindowsCache  
-**Commands Found**:  attrib.exe +h +s C:\ProgramData\WindowsCache  
+**Folder Path:** `C:\ProgramData\WindowsCache`  
+**Commands Found**:  `attrib.exe +h +s C:\ProgramData\WindowsCache`  
 **Thoughts**: I initially went in looking for hidden directories, which is why I filtered for `attrib.exe` first. I then went back and filtered for the hidden folder to see how it was created.
 
 **KQL Queries**:
@@ -125,15 +125,17 @@ DeviceProcessEvents
 
 ##  Flag 5 – How many file extensions were excluded from Windows Defender scanning
 
-**Objective**: 
-
-**Finding**:  
+**Finding**: 3 file extensions `(.ps1, .bat, and .exe )`  were added to the registry `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Defender\Exclusions\Extensions`
 
 **KQL Query**:
 ```
-```
+DeviceRegistryEvents
+| where DeviceName == "azuki-sl"
+| where RegistryKey contains "Exclusions"
 
-**Notes:**
+```
+<img width="1871" height="542" alt="Q5" src="https://github.com/user-attachments/assets/22f24091-6a64-4503-bc5a-ea7316423768" />
+
 ---
 
 ##  Flag 6 – What temporary folder path was excluded from Windows Defender scanning
