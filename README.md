@@ -101,8 +101,8 @@ DeviceProcessEvents
 
 **Finding**: PowerShell was used to create the folder `WindowsCache` at 2025-11-19T19:05:30.755805Z. The folder was then hidden at 2025-11-19T19:05:33.7665036Z.
 
-**Folder Path:** C:\ProgramData\WindowsCache
-**Commands Found**:  attrib.exe +h +s C:\ProgramData\WindowsCache
+**Folder Path:** C:\ProgramData\WindowsCache  
+**Commands Found**:  attrib.exe +h +s C:\ProgramData\WindowsCache  
 **Thoughts**: I initially went in looking for hidden directories, which is why I filtered for `attrib.exe` first. I then went back and filtered for the hidden folder to see how it was created.
 
 **KQL Queries**:
