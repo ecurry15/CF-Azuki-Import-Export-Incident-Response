@@ -27,7 +27,7 @@
   
 ### **Attack Chain** *(What did the attacker do?)*
 
-## **Initial Access (TA0001):** T1078.003 - The attacker gained access using valid local credentials via RDP
+**Initial Access (TA0001):** T1078.003 - The attacker gained access using valid local credentials via RDP
 
 ## **Execution (TA0002):** T1059.001 - PowerShell was used to run the Malicious Script "wupdate.ps1"
 
