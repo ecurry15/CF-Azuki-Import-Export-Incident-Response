@@ -173,7 +173,7 @@ DeviceFileEvents
 ##  Flag 8 & 9 – Identify the name and executable path of the scheduled task created for persistence
 
 **Finding**: The attacker created a scheduled task named "Windows Update Check" that would secretly execute the malicious payload `svchost.exe` daily at 02:00 under the SYSTEM account.  
-**Time of Event**: `2025-11-19T19:07:46.9796512Z`  
+**Time of Event**: `2025-11-19T19:07:46.9796512Z`    
 **Command Used**: `schtasks.exe /create /tn "Windows Update Check" /tr C:\ProgramData\WindowsCache\svchost.exe /sc daily /st 02:00 /ru SYSTEM /f`
 
 
