@@ -39,19 +39,26 @@ T1053.005 - The attacker created a Scheduled Task to run the malicious payload
 ## **Defense Evasion (TA0005):**  
 T1564.001/T1036.008/T1564.001/T1105 - The attacker created a malware staging directory, excluded file extensions and folders from Windows Defender scanning, and abused certutil.exe to download files.
 
-## **Discovery (TA0007):**
+## **Discovery (TA0007):**  
+T1016 - the attacher used Arp.exe and Ipconfig / all to perform network reconnaissance
 
-## **Credential Access (TA0006):**
+## **Credential Access (TA0006):**  
+T1003.001 - The attacker used the credential dumping tool Mimikatz
 
-## **Lateral Movement (TA0008):**
+## **Lateral Movement (TA0008):**  
+T1021.001 - The attacker used the mstsc.exe /V:<IP> command to attempt lateral movement.
 
-## **Collection (TA0009):**
+## **Collection (TA0009):**  
+T1560.001 - The attacker created a file "export-data.zip" for data exfiltration
 
-## **Command & Control (TA0011):**
+## **Command & Control (TA0011):**  
+T1071.001 - Command and Control communications established over port 443
 
-## **Exfiltration (TA0010):**
+## **Exfiltration (TA0010):**  
+T1567 - The website Discord was used to exfiltrate stolen data
 
-## **Impact (TA0040):**
+## **Impact (TA0040):**  
+T1136.001 - The attacker created a backdoor account named "support" for persistence.
 ---
 
 
