@@ -95,12 +95,11 @@ DeviceProcessEvents
 ```
 <img width="1879" height="673" alt="Q3" src="https://github.com/user-attachments/assets/62d2dcec-76af-42e1-afc3-54b398923ee6" />
 
-**Notes:**
 
 ---
 ##  Flag 4 – Identify the PRIMARY staging directory where malware was stored
 
-**Objective**: 
+**Finding**: 
 
 **Finding**:  
 
