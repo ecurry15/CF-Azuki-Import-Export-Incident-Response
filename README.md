@@ -8,9 +8,9 @@
 
 ## 🎯 EXECUTIVE SUMMARY
 
-*Write this LAST - 3-5 sentences summarizing the entire incident*
+**What Happened:**  
 
-**What Happened:**
+On November 19, 2025, at 18:36UTC, Azuki Import/Export Trading Co. was compromised when an attacker accessed an IT admin VM by using stolen RDP credentials. The intruder deployed malware, disabled defenses, harvested credentials, and exfiltrated sensitive contract and pricing data to Discord before clearing logs. This data was found on underground forums and was used by a competitor to undercut Azuki’s 6-year shipping contract by exactly 3%.
 
 ---
 ## 🖥️ INCIDENT DETAILS
@@ -26,6 +26,7 @@
 - **Compromised Account:** kenji.sato
 - **Affected System:** azuki-sl
 - **Attacker IP Address:** 88.97.178.12
+- **Investigation Tool:** Microsoft Defender for Endpoint (MDE)
   
 ## 🧬 MITRE ATT&CK Mapping (Attack Chain)
 
