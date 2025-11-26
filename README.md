@@ -71,7 +71,7 @@ DeviceLogonEvents
 
 
 ---
-##  Flag 2 – Identify the user account that was compromised for initial access
+## :triangular_flag_on_post: Flag 2 – Identify the user account that was compromised for initial access
 
 **Finding**: The User account `kenji.sato` was used by the attacker.
 
@@ -79,7 +79,7 @@ DeviceLogonEvents
 
 ---
 
-##  Flag 3 – Identify the command and argument used to enumerate network neighbours
+## :triangular_flag_on_post: Flag 3 – Identify the command and argument used to enumerate network neighbours
 
 **Finding**: The attacher used the `Arp.exe` and `Ipconfig / all` commands to identify lateral movement opportunities at `2025-11-19T19:04:01.773778Z`.
 
@@ -98,7 +98,7 @@ DeviceProcessEvents
 
 
 ---
-##  Flag 4 – Identify the PRIMARY staging directory where malware was stored
+## :triangular_flag_on_post: Flag 4 – Identify the PRIMARY staging directory where malware was stored
 
 **Finding**: PowerShell was used to create the folder `WindowsCache` at `2025-11-19T19:05:30.755805Z`. The folder was then hidden at `2025-11-19T19:05:33.7665036Z`.
 
@@ -126,7 +126,7 @@ DeviceProcessEvents
 
 ---
 
-##  Flag 5 – How many file extensions were excluded from Windows Defender scanning
+## :triangular_flag_on_post: Flag 5 – How many file extensions were excluded from Windows Defender scanning
 
 **Finding**: 3 file extensions `(.ps1, .bat, and .exe )`  were added to the registry `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Defender\Exclusions\Extensions` at `2025-11-19T18:49:27.7301011Z`.
 
@@ -141,7 +141,7 @@ DeviceRegistryEvents
 
 ---
 
-##  Flag 6 – What temporary folder path was excluded from Windows Defender scanning
+## :triangular_flag_on_post: Flag 6 – What temporary folder path was excluded from Windows Defender scanning
 
 **Finding**:  The temp folder was excluded from Windows Defender at `2025-11-19T18:49:27.6830204Z`.  
 
@@ -159,7 +159,7 @@ DeviceRegistryEvents
 ```
 
 ---
-##  Flag 7 – Identify the Windows-native binary the attacker abused to download files
+## :triangular_flag_on_post: Flag 7 – Identify the Windows-native binary the attacker abused to download files
 
 **Finding**: The attacker abused `certutil.exe` to download malicious content from `http[:]//78[.]141[.]196[.]6[:]8080/` to the created file `svchost.exe`.  
 
@@ -177,7 +177,7 @@ DeviceFileEvents
 ```
 ---
 
-##  Flag 8 & 9 – Identify the name and executable path of the scheduled task created for persistence
+## :triangular_flag_on_post: Flag 8 & 9 – Identify the name and executable path of the scheduled task created for persistence
 
 **Finding**: The attacker created a scheduled task named "Windows Update Check" that would secretly execute the malicious payload `svchost.exe` daily at 02:00 under the SYSTEM account.  
 
@@ -195,7 +195,7 @@ DeviceProcessEvents
 ```
 
 ---
-##  Flag 10 & 11 –  Identify the IP address and the destination port of the command and control server
+## :triangular_flag_on_post: Flag 10 & 11 –  Identify the IP address and the destination port of the command and control server
 
 **Finding**: A network connection was initiated by `svchost.exe` to external `IP 78.141.196.6` over `port 443` at `2025-11-19T19:11:04.1766386Z`.  
 
@@ -212,7 +212,7 @@ DeviceNetworkEvents
 <img width="1873" height="415" alt="Q10" src="https://github.com/user-attachments/assets/a0be21a6-3921-46fd-9e70-aad9a5c24ced" />
 
 ---
-##  Flag 12 & 13 – Identify the filename of the credential dumping tool and the module used to extract logon passwords
+## :triangular_flag_on_post: Flag 12 & 13 – Identify the filename of the credential dumping tool and the module used to extract logon passwords
 
 **Finding**: The attacker abused `certutil.exe` again to download the credential-harvesting tool `Mimikatz` from `http[:]//78[.]141[.]196[.]6[:]8080/` to the created file `mm.exe` at `2025-11-19T19:07:22.8551193Z`. They then used the extraction module `sekurlsa::logonpasswords` to extract logon passwords from memory at `2025-11-19T19:08:26.2804285Z`.  
 
@@ -235,7 +235,7 @@ DeviceProcessEvents
 
 ---
 
-##  Flag 14 – Identify the compressed archive filename used for data exfiltration
+## :triangular_flag_on_post: Flag 14 – Identify the compressed archive filename used for data exfiltration
 
 **Finding**: `Export-data.zip` was created at `2025-11-19T19:08:58.0244963Z`  
 
@@ -252,7 +252,7 @@ DeviceFileEvents
 
 ---
 
-##  Flag 15 – Identify the cloud service used to exfiltrate stolen data
+## :triangular_flag_on_post: Flag 15 – Identify the cloud service used to exfiltrate stolen data
 
 **Finding**: The attacker used `curl.exe` to upload the file `export-data.zip` to `https[:]//discord[.]com` at `2025-11-19T19:09:21.4234133Z`  
 
@@ -269,7 +269,7 @@ DeviceNetworkEvents
 
 ```
 ---
-##  Flag 16 – Identify the first Windows event log cleared by the attacker
+## :triangular_flag_on_post: Flag 16 – Identify the first Windows event log cleared by the attacker
 
 **Finding**: The attacker cleared the Windows Security Logs at `2025-11-19T19:11:39.0934399Z`  
 
@@ -285,7 +285,7 @@ DeviceProcessEvents
 ```
 
 ---
-##  Flag 17 – Identify the backdoor account username created by the attacker
+## :triangular_flag_on_post: Flag 17 – Identify the backdoor account username created by the attacker
 
 **Finding**: The user account `support` was created at `2025-11-19T19:09:48.9668967Z` then added to the `Administrators` group at `2025-11-19T19:09:53.08884Z`
 
@@ -301,7 +301,7 @@ DeviceEvents
 
 ---
 
-##  Flag 18 – Identify the PowerShell script file used to automate the attack chain
+## :triangular_flag_on_post: Flag 18 – Identify the PowerShell script file used to automate the attack chain
 
 **Finding**: The attacker downloads a malious file from `http[:]//78[.]141[.]196[.]6[:]8080` under the file name `wupdate.ps1` at `2025-11-19T18:37:40.4082551Z`    
 
@@ -318,7 +318,7 @@ DeviceFileEvents
 
 ```
 ---
-##  Flag 19 & 20 – Identify the tool used and the targeted IP address for lateral movement
+## :triangular_flag_on_post: Flag 19 & 20 – Identify the tool used and the targeted IP address for lateral movement
 
 **Finding**: The attacker used `mstsc.exe` to target IP address `10.1.0.188` for lateral movement at `2025-11-22T00:38:47.8327343Z` 
 
