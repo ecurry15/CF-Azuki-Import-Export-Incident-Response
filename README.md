@@ -356,13 +356,14 @@ Export-data.zip
 SHA256 : 7fea3a7e71c3a493effd91ff9084d602857954c96fdc04e022415069d39bef2e  
 
 ```
-**Accounts and Users**:
+**Accounts**:
 ```
-
+kenji.sato (compromised)
+support (created by attacker)
 ```
 **Domains**:
 ```
-
+Discord.com
 ```
 ---
 
