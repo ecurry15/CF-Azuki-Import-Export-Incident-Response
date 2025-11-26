@@ -346,8 +346,6 @@ DeviceProcessEvents
 | Download Server | **78.141.196.6** |
 | Lateral Movement Target | **10.1.0.188** |
 
----
-
 ### 🔹 **File Hashes**
 | File | SHA256 |
 |------|--------|
@@ -355,15 +353,11 @@ DeviceProcessEvents
 | **mm.exe** | `61c0810a23580cf492a6ba4f7654566108331e7a4134c968c2d6a05261b2d8a1` |
 | **export-data.zip** | `7fea3a7e71c3a493effd91ff9084d602857954c96fdc04e022415069d39bef2e` |
 
----
-
 ### 🔹 **Accounts**
 | Type | Username |
 |------|----------|
 | Compromised | **kenji.sato** |
 | Attacker-Created | **support** |
-
----
 
 ### 🔹 **Domains**
 - **discord.com**
