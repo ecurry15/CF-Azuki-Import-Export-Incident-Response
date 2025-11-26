@@ -335,7 +335,7 @@ DeviceProcessEvents
 
 ## **APPENDIX**
 
-### **A. Key Indicators of Compromise (IOCs)**
+### **Key Indicators of Compromise (IOCs)**
 
 ---
 
@@ -367,4 +367,4 @@ DeviceProcessEvents
 
 **Report Completed By:** Edward Campbell
 
-**Date:** ________________
+**Date:** 25 November 2025
