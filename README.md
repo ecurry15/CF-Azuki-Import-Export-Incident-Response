@@ -336,6 +336,25 @@ DeviceProcessEvents
 
 ### **A. Key Indicators of Compromise (IOCs)**
 
+**IPs**:  
+```
+88.97.178.12 (Attacker's IP)
+78.141.196.6 (C2 server)
+78.141.196.6 (web server used for downloads)
+10.1.0.188 (laterl movement target)
+```
+**File Hashes**:
+```
+
+```
+**Accounts and Users**:
+```
+
+```
+**Domains**:
+```
+
+```
 ---
 
 **Report Completed By:** Edward Campbell
