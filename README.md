@@ -51,7 +51,7 @@ On November 19, 2025, at 18:36UTC, Azuki Import/Export Trading Co. was compromis
 
 
 
-##  Flag 1 – Identify the source IP address of the Remote Desktop Protocol connection
+## :triangular_flag_on_post: Flag 1 – Identify the source IP address of the Remote Desktop Protocol connection
 
 **Finding**: The IP address `88.97.178.12` gained initial access to the VM `AZUKI-SL` at `2025-11-19T18:36:18.503997Z` via RDP by using valid user credentials. 
 
