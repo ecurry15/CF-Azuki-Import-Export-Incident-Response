@@ -336,35 +336,38 @@ DeviceProcessEvents
 
 ### **A. Key Indicators of Compromise (IOCs)**
 
-**IPs**:  
-```
-88.97.178.12 (Attacker's IP)
-78.141.196.6 (C2 server)
-78.141.196.6 (web server used for downloads)
-10.1.0.188 (laterl movement target)
-```
-**File Hashes**:
-```
-Svchost.exe  
-SHA256 : 729214e56d3c54956ce9c2d93b238563bcedc8b80a5ca0b8e7636602d9c712d5  
+---
 
-Mm.exe  
-SHA256 : 61c0810a23580cf492a6ba4f7654566108331e7a4134c968c2d6a05261b2d8a1  
+### 🔹 **IP Addresses**
+| Type | Address |
+|------|---------|
+| Attacker IP | **88.97.178.12** |
+| C2 Server | **78.141.196.6** |
+| Download Server | **78.141.196.6** |
+| Lateral Movement Target | **10.1.0.188** |
 
+---
 
-Export-data.zip  
-SHA256 : 7fea3a7e71c3a493effd91ff9084d602857954c96fdc04e022415069d39bef2e  
+### 🔹 **File Hashes**
+| File | SHA256 |
+|------|--------|
+| **svchost.exe** | `729214e56d3c54956ce9c2d93b238563bcedc8b80a5ca0b8e7636602d9c712d5` |
+| **mm.exe** | `61c0810a23580cf492a6ba4f7654566108331e7a4134c968c2d6a05261b2d8a1` |
+| **export-data.zip** | `7fea3a7e71c3a493effd91ff9084d602857954c96fdc04e022415069d39bef2e` |
 
-```
-**Accounts**:
-```
-kenji.sato (compromised)
-support (created by attacker)
-```
-**Domains**:
-```
-Discord.com
-```
+---
+
+### 🔹 **Accounts**
+| Type | Username |
+|------|----------|
+| Compromised | **kenji.sato** |
+| Attacker-Created | **support** |
+
+---
+
+### 🔹 **Domains**
+- **discord.com**
+
 ---
 
 **Report Completed By:** Edward Campbell
