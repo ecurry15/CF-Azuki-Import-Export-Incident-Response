@@ -345,6 +345,15 @@ DeviceProcessEvents
 ```
 **File Hashes**:
 ```
+Svchost.exe  
+SHA256 : 729214e56d3c54956ce9c2d93b238563bcedc8b80a5ca0b8e7636602d9c712d5  
+
+Mm.exe  
+SHA256 : 61c0810a23580cf492a6ba4f7654566108331e7a4134c968c2d6a05261b2d8a1  
+
+
+Export-data.zip  
+SHA256 : 7fea3a7e71c3a493effd91ff9084d602857954c96fdc04e022415069d39bef2e  
 
 ```
 **Accounts and Users**:
