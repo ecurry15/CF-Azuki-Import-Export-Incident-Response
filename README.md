@@ -104,7 +104,7 @@ DeviceProcessEvents
 
 **Folder Path:** `C:\ProgramData\WindowsCache`  
 
-**Commands Found**:  `attrib.exe +h +s C:\ProgramData\WindowsCache`  
+**Commands Used**:  `attrib.exe +h +s C:\ProgramData\WindowsCache`  
 
 **Thoughts**: I initially went in looking for hidden directories, which is why I filtered for `attrib.exe` first. I then went back and filtered for the hidden folder to see how it was created.
 
