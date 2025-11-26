@@ -81,7 +81,7 @@ DeviceLogonEvents
 
 ## :triangular_flag_on_post: Flag 3 – Identify the command and argument used to enumerate network neighbours
 
-**Finding**: The attacher used the `Arp.exe` and `Ipconfig / all` commands to identify lateral movement opportunities at `2025-11-19T19:04:01.773778Z`.
+**Finding**: The attacker used the `Arp.exe` and `Ipconfig / all` commands to identify lateral movement opportunities at `2025-11-19T19:04:01.773778Z`.
 
 **Thoughts**:  When creating this query, I wanted to start with the most common commands that reveal local network devices.
 
