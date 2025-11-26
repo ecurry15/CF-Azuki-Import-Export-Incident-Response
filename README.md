@@ -317,31 +317,19 @@ DeviceFileEvents
 
 ```
 ---
-##  Flag 19 – What IP address was targeted for lateral movement
+##  Flag 19 & 20 – Identify the tool used and the targeted IP address for lateral movement
 
-**Objective**: 
+**Finding**: The attacker used `mstsc.exe` to target IP address `10.1.0.188` for lateral movement at `2025-11-22T00:38:47.8327343Z` 
 
-**Finding**:  
-
-**KQL Query**:
-```
-```
-
-**Notes:**
-
----
-
-##  Flag 20 – Identify the remote access tool used for lateral movement
-
-**Objective**: 
-
-**Finding**:  
+**Command Used**: `mstsc.exe /V:10.1.0.188` 
 
 **KQL Query**:
 ```
-```
+DeviceProcessEvents
+| where DeviceName == "azuki-sl"
+| where ProcessCommandLine has_any ("cmdkey", "mstsc")
 
-**Notes:**
+```
 ---
 
 ## **APPENDIX**
